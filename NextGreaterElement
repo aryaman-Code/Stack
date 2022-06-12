@@ -1,0 +1,17 @@
+ static int[] nextGreaterEle(int a[],int n)
+ {
+        int ngt[]=new int[n];
+        Stack<Integer> st=new Stack<>();
+        for(int i=n-1;i>=0;i--)
+        {
+            while(st.size()>0&&a[i]>a[st.peek()])
+            st.pop();
+            if(st.size()==0)
+              ngt[i]=-1;
+            else
+             ngt[i]=st.peek();
+            st.push(i);
+        }
+        return ngt;
+}
+        
